@@ -6,7 +6,7 @@
             <div class="col align-center">
                 <div class="content">
                     <div class="title-box">
-                        <p class="sub-title">Nos valeurs fondamentales</p>
+                        <p class="section-subtitle">Nos valeurs fondamentales</p>
                         <h2 id="values-title">Plus qu’un repas, une expérience de partage et de passion</h2>
                     </div>
                     <p>
@@ -18,8 +18,9 @@
                 </div>
             </div>
             <div class="col align-center">
-                <img src="../assets/pictures/1.png"
-                    alt="Grillades maison servies au restaurant Kitchen Meat à Lyon, illustrant les valeurs de convivialité et d'authenticité">
+                <img
+src="/images/1.webp" width="640" height="360" loading="lazy"
+                    alt="Grillades maison servies au restaurant Kitchen Meat à Lyon, illustrant les valeurs de convivialité et d'authenticité" >
             </div>
         </div>
     </section>
@@ -29,16 +30,6 @@
 </template>
 
 <style lang="scss" scoped>
-.sub-title {
-    font-size: 16px;
-    letter-spacing: 1px;
-    line-height: 30px;
-    color: #f38b1c;
-    font-weight: 700;
-    font-family: "Lato", sans-serif;
-    margin-bottom: 5px;
-}
-
 h2 {
     font-size: 50px;
     line-height: 1.2em;

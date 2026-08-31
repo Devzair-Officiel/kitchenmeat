@@ -12,9 +12,9 @@
 
 <style lang="scss" scoped>
 .img-background {
-    width: 100vw;
+    width: 100%;
     height: 500px;
-    background-image: url('../assets/pictures/brochette.png');
+    background-image: url('/images/brochette.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -22,6 +22,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 768px) {
+        background-image: url('/images/brochette-mobile.webp');
+        background-attachment: scroll;
+    }
 
     .img-overlay {
         color: white;
@@ -34,13 +39,17 @@
             font-family: 'Yellowtail';
             letter-spacing: 2px;
             margin: 0;
+
+            @media (max-width: 600px) {
+                font-size: 60px;
+            }
         }
 
         p {
             font-size: 14px;
             line-height: 14px;
             font-weight: 400;
-            font-family: 'Montserrat', 'Helvetica Neue', Arial, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Arial, Verdana, sans-serif;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -48,12 +57,11 @@
         }
     }
 
-    // Optionnel : ajouter un fond semi-transparent pour améliorer la lisibilité
     &::before {
         content: '';
         position: absolute;
         inset: 0;
-        background-color: rgba(0, 0, 0, 0.4); // fondu sombre
+        background-color: rgba(0, 0, 0, 0.4);
         z-index: 0;
     }
 }

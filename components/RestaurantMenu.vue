@@ -2,7 +2,7 @@
     <section id="menu" class="container" aria-labelledby="menu-title">
         <div class="food-menu">
             <div class="title-box text-center">
-                <p class="sub-title">Choisisez & Savourez</p>
+                <p class="section-subtitle">Choisisez & Savourez</p>
                 <h2 id="menu-title">Découvrer notre carte</h2>
             </div>
 
@@ -145,16 +145,6 @@ li {
     padding: 0 15px;
     margin: 0 auto;
     position: static;
-}
-
-.sub-title {
-    font-size: 16px;
-    letter-spacing: 1px;
-    line-height: 30px;
-    color: #f38b1c;
-    font-weight: 700;
-    font-family: "Lato", sans-serif;
-    margin-bottom: 5px;
 }
 
 h2 {

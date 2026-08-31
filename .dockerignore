@@ -1,0 +1,36 @@
+# Git
+.git
+.gitignore
+.github
+
+# Build outputs (reconstruits dans le container)
+.nuxt
+.output
+dist
+
+# Dépendances locales (réinstallées dans le container)
+node_modules
+
+# Fichiers de développement
+*.log
+.env
+.env.local
+.env.*.local
+
+# Éditeurs et OS
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+
+# Médias originaux non-optimisés (remplacés par public/images/)
+# Les WebP/MP4 optimisés sont déjà dans public/images/
+assets/videos/
+assets/pictures/*.png
+assets/pictures/*.jpg
+assets/icons/*.png
+assets/logo/*.png
+
+# Documentation
+README.md

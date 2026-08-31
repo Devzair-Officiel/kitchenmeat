@@ -1,5 +1,13 @@
 @use '../utils/variables' as *;
 
+@font-face {
+   font-family: 'arkipelagoregular';
+   src: url('/fonts/arkipelago.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+   font-display: swap;
+}
+
 body {
    font-family: $font-base;
    font-size: $font-size-base;
@@ -45,4 +53,14 @@ a {
 
 section {
    padding-bottom: 50px;
+}
+
+.section-subtitle {
+   font-size: 16px;
+   letter-spacing: 1px;
+   line-height: 30px;
+   color: #f38b1c;
+   font-weight: 700;
+   font-family: "Lato", sans-serif;
+   margin-bottom: 5px;
 }

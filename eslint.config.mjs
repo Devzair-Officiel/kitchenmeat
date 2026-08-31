@@ -2,5 +2,10 @@
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt(
-  // Your custom configs here
+  {
+    rules: {
+      // Vue 3 supporte les fragments (plusieurs éléments racines) nativement
+      'vue/no-multiple-template-root': 'off',
+    },
+  }
 )

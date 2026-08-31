@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="line"></div>
+        <div class="line"/>
         <p>
             © 2025 <a href="https://hypedesign.fr">Hypedesign</a> - Tout droit réservé
         </p>

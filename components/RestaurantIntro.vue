@@ -5,8 +5,9 @@
             <div class="row">
                 <article class="col block">
                     <div class="icon">
-                        <img src="../assets/icons/chef.png"
-                            alt="Chef cuisinier professionnel spécialisé en grillades à Lyon" />
+                        <img
+src="/images/chef.webp" width="80" height="80" loading="lazy"
+                            alt="Chef cuisinier professionnel spécialisé en grillades à Lyon" >
                     </div>
                     <h3>Chefs spécialisés en viandes grillées</h3>
                     <p>Nos chefs passionnés subliment chaque pièce de viande avec savoir-faire et créativité. Une
@@ -15,8 +16,9 @@
 
                 <article class="col block">
                     <div class="icon">
-                        <img src="../assets/icons/quality.png"
-                            alt="Icône de certification qualité restaurant viande Lyon" />
+                        <img
+src="/images/quality.webp" width="80" height="80" loading="lazy"
+                            alt="Icône de certification qualité restaurant viande Lyon" >
                     </div>
                     <h3>Qualité supérieure garantie</h3>
                     <p>De la sélection des produits à l’assiette, nous garantissons une qualité irréprochable, pour une
@@ -25,7 +27,9 @@
 
                 <article class="col block">
                     <div class="icon">
-                        <img src="../assets/icons/vache.png" alt="Viande fraîche de bœuf livrée chaque jour à Lyon" />
+                        <img
+src="/images/vache.webp" width="80" height="80" loading="lazy"
+                            alt="Viande fraîche de bœuf livrée chaque jour à Lyon" >
                     </div>
                     <h3>Viandes fraîches du jour</h3>
                     <p>Chaque jour, nos viandes sont livrées fraîches, soigneusement choisies pour leur tendreté et leur
@@ -34,7 +38,9 @@
 
                 <article class="col block">
                     <div class="icon">
-                        <img src="../assets/icons/trendy.png" alt="Cuisine moderne et tendance à Lyon" />
+                        <img
+src="/images/trendy.webp" width="80" height="80" loading="lazy"
+                            alt="Cuisine moderne et tendance à Lyon" >
                     </div>
                     <h3>Cuisine moderne et authentique</h3>
                     <p>Entre grillades maison et inspirations urbaines, notre cuisine mêle tradition et modernité pour
@@ -48,14 +54,15 @@
             <div class="row">
                 <div class="col align-center">
                     <div class="img-two">
-                        <img src="../assets/pictures/presentation.jpg"
-                            alt="Assiette de grillades servie au restaurant Kitchen Meat à Lyon">
+                        <img
+src="/images/presentation.webp" width="500" height="550" loading="lazy"
+                            alt="Assiette de grillades servie au restaurant Kitchen Meat à Lyon" >
                     </div>
                 </div>
                 <div class="col align-center">
                     <div class="content">
                         <div class="title-box">
-                            <p class="sub-title">À propos de <strong>Kitchen Meat</strong></p>
+                            <p class="section-subtitle">À propos de <strong>Kitchen Meat</strong></p>
                             <h2 id="about-title">L’esprit grillades, dans le centre de Lyon</h2>
                         </div>
                         <p>
@@ -127,16 +134,6 @@
 }
 
 
-
-.sub-title {
-    font-size: 16px;
-    letter-spacing: 1px;
-    line-height: 30px;
-    color: #f38b1c;
-    font-weight: 700;
-    font-family: "Lato", sans-serif;
-    margin-bottom: 5px;
-}
 
 h2 {
     font-size: 50px;

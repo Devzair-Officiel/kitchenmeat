@@ -1,0 +1,10 @@
+services:
+  kitchenmeat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kitchenmeat:latest
+    container_name: kitchenmeat
+    restart: unless-stopped
+    ports:
+      - "${PORT:-80}:80"

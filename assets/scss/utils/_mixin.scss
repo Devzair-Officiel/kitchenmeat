@@ -28,43 +28,16 @@
 
 @mixin smooth-gradient-wave($colors: (blue, red), $duration: 7s) {
    background: linear-gradient(270deg, $colors);
-   background-size: 400% 400%; // Augmente la taille du fond pour une transition plus douce
+   background-size: 400% 400%;
    color: transparent;
    -webkit-background-clip: text;
    background-clip: text;
-   display: inline-block; // Nécessaire pour l'effet de clip sur le texte
+   display: inline-block;
    animation: gradient-wave $duration linear infinite;
 
    @keyframes gradient-wave {
-      0% {
-         background-position: 100% 50%;
-      }
-
-      100% {
-         background-position: 0% 50%;
-      }
-   }
-}
-
-
-// Mixin pour une animation de gradient fluide de gauche à droite
-@mixin smooth-gradient-wave($colors: (blue, red), $duration: 7s) {
-   background: linear-gradient(270deg, $colors);
-   background-size: 400% 400%; // Augmente la taille du fond pour une transition plus douce
-   color: transparent;
-   -webkit-background-clip: text;
-   background-clip: text;
-   display: inline-block; // Nécessaire pour l'effet de clip sur le texte
-   animation: gradient-wave $duration linear infinite;
-
-   @keyframes gradient-wave {
-      0% {
-         background-position: 100% 50%;
-      }
-
-      100% {
-         background-position: 0% 50%;
-      }
+      0% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
    }
 }
 

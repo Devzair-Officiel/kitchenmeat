@@ -1,13 +1,14 @@
 <template>
     <header class="hero-header">
-        <video class="background-video" autoplay muted loop playsinline>
-            <source src="../assets/videos/intro.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas les vidéos HTML5.
+        <video
+class="background-video" autoplay muted loop playsinline
+               poster="/images/intro-poster.webp" preload="none">
+            <source src="/images/intro.mp4" type="video/mp4">
         </video>
 
         <nav class="navbar">
-            <input type="checkbox" id="burger" v-model="menuOpen" hidden>
-            <label for="burger" class="burger"></label>
+            <input id="burger" v-model="menuOpen" type="checkbox" hidden>
+            <label for="burger" class="burger"/>
 
             <ul class="nav-left">
                 <li><a href="#">Accueil</a></li>
@@ -16,7 +17,9 @@
             </ul>
 
             <div class="logo">
-                <img src="../assets/logo/logo.png" alt="Logo Kitchen Meat">
+                <img
+src="/images/logo.webp" alt="Logo Kitchen Meat"
+                     width="140" height="140" fetchpriority="high">
             </div>
 
             <ul class="nav-right">
@@ -39,27 +42,23 @@
     </header>
 
     <div class="intro">
-        <intro />
+        <RestaurantIntro />
     </div>
     <div>
-        <Menu />
+        <RestaurantMenu />
     </div>
     <div class="about">
-        <About />
+        <RestaurantAbout />
     </div>
     <div>
-        <Qualite />
+        <RestaurantQualite />
     </div>
     <div class="contact">
-        <Contact />
+        <RestaurantContact />
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import Menu from '~/components/menu.vue'
-import Qualite from '~/components/qualite.vue'
-
 const menuOpen = ref(false)
 
 const handleResize = () => {
@@ -79,7 +78,7 @@ useHead({
     { name: 'robots', content: 'index, follow' },
     { property: 'og:title', content: 'Kitchen Meat - Restaurant de grillades à Lyon' },
     { property: 'og:description', content: 'Viandes fraîches, cuisson au feu de bois, produits maison – Kitchen Meat, restaurant grillade à Lyon.' },
-    { property: 'og:image', content: 'https://www.kitchenmeat.fr/images/preview.jpg' },
+    { property: 'og:image', content: 'https://www.kitchenmeat.fr/images/brochette.webp' },
     { property: 'og:url', content: 'https://www.kitchenmeat.fr' },
     { property: 'og:type', content: 'restaurant' }
   ],
@@ -260,7 +259,7 @@ useHead({
 
 /* OVERLAY IMAGE */
 .img-overlay {
-    background-image: url("../assets/pictures/bg-header-overlay.png");
+    background-image: url("/images/bg-header-overlay.webp");
     filter: brightness(0) saturate(100%) invert(1);
     background-position: top center;
     background-repeat: no-repeat;

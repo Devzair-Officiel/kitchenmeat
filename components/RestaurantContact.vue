@@ -3,18 +3,20 @@
         <div class="bg">
             <div class="row">
                 <div class="col align-center img">
-                    <img src="../assets/pictures/contact.png"
-                        alt="table avec un panneau resérvé au restaurant Kitchen Meat à Lyon">
+                    <img
+src="/images/contact.webp" width="500" height="400" loading="lazy"
+                        alt="table avec un panneau resérvé au restaurant Kitchen Meat à Lyon" >
                 </div>
                 <div class="col align-center">
                     <div class="content">
                         <div class="title-box">
-                            <p class="sub-title">Faites votre réservation</p>
+                            <p class="section-subtitle">Faites votre réservation</p>
                             <h2 id="values-title">Contactez nous</h2>
                         </div>
                         <ul class="">
                             <li class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                <svg
+xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round"
                                     class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin">
@@ -64,16 +66,6 @@
     }
 }
 
-
-.sub-title {
-    font-size: 16px;
-    letter-spacing: 1px;
-    line-height: 30px;
-    color: #f38b1c;
-    font-weight: 700;
-    font-family: "Lato", sans-serif;
-    margin-bottom: 5px;
-}
 
 h2 {
     font-size: 50px;
