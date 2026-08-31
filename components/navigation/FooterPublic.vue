@@ -2,7 +2,7 @@
     <div>
         <div class="line"/>
         <p>
-            © 2025 <a href="https://hypedesign.fr">Hypedesign</a> - Tout droit réservé
+            © 2026 <a href="https://devzair.fr">Devzair</a> - Tout droit réservé
         </p>
     </div>
 </template>

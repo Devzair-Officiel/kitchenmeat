@@ -140,7 +140,7 @@ useHead({
     position: relative;
     height: 100vh;
     min-height: 650px;
-    width: 100vw;
+    width: 100%;
     background: none;
     color: #ffffff;
 
