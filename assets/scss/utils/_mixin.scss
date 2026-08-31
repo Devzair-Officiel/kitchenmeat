@@ -1,0 +1,802 @@
+// Centrer un bloc
+@mixin flex-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+// Les breakpoints
+@mixin respond-to($breakpoint) {
+   @if $breakpoint == mobile {
+      @media (max-width: 699px) {
+         @content;
+      }
+   }
+
+   @else if $breakpoint == tablet {
+      @media (min-width: 700px) and (max-width: 1199px) {
+         @content;
+      }
+   }
+
+   @else if $breakpoint == desktop {
+      @media (min-width: 1200px) {
+         @content;
+      }
+   }
+}
+
+@mixin smooth-gradient-wave($colors: (blue, red), $duration: 7s) {
+   background: linear-gradient(270deg, $colors);
+   background-size: 400% 400%; // Augmente la taille du fond pour une transition plus douce
+   color: transparent;
+   -webkit-background-clip: text;
+   background-clip: text;
+   display: inline-block; // Nécessaire pour l'effet de clip sur le texte
+   animation: gradient-wave $duration linear infinite;
+
+   @keyframes gradient-wave {
+      0% {
+         background-position: 100% 50%;
+      }
+
+      100% {
+         background-position: 0% 50%;
+      }
+   }
+}
+
+
+// Mixin pour une animation de gradient fluide de gauche à droite
+@mixin smooth-gradient-wave($colors: (blue, red), $duration: 7s) {
+   background: linear-gradient(270deg, $colors);
+   background-size: 400% 400%; // Augmente la taille du fond pour une transition plus douce
+   color: transparent;
+   -webkit-background-clip: text;
+   background-clip: text;
+   display: inline-block; // Nécessaire pour l'effet de clip sur le texte
+   animation: gradient-wave $duration linear infinite;
+
+   @keyframes gradient-wave {
+      0% {
+         background-position: 100% 50%;
+      }
+
+      100% {
+         background-position: 0% 50%;
+      }
+   }
+}
+
+@mixin gradient_blue {
+   background: linear-gradient(90deg, #005CA4, #A0D4FF);
+   background-clip: border-box;
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+@mixin button {
+   box-shadow: 1px 1px 1px 2px rgba(85, 85, 85, 0.3);
+   padding: 10px 15px;
+   cursor: pointer;
+   text-align: center;
+   border: none;
+   border-radius: 10px;
+   letter-spacing: 1px;
+   background-color: $primary;
+   color: white;
+   transition: all 0.3s ease;
+
+   &:hover {
+      background-color: $blue_1;
+      box-shadow: 2px 2px 20px 5px rgba(78, 87, 173, 0.178);
+   }
+
+   &:active {
+      transform: scale(0.98);
+      box-shadow: 2px 2px 20px 5px rgba(78, 87, 173, 0.212)
+   }
+
+}
+
+
+@mixin modal {
+   .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      overflow: auto;
+      z-index: 10;
+
+      h2 {
+         margin: 20px 0;
+         text-align: center;
+      }
+   }
+
+   .contenu_modal {
+      margin: 5em auto;
+      width: 80%;
+      max-width: 700px;
+      background: #fff;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   }
+
+   /* Modal Content */
+   .modal-content {
+      position: relative;
+   }
+
+   /* Close Button */
+   .btn-close {
+      position: absolute;
+      top: -30px;
+      right: -20px;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+   }
+
+   /* Barres de la croix */
+   .btn-close::before,
+   .btn-close::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      background-color: #000;
+      transition: transform 0.3s ease-out;
+   }
+
+   /* Rotation des barres pour former une croix */
+   .btn-close::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+   }
+
+   .btn-close::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+   }
+
+   /* Hover Effect */
+   .btn-close:hover::before,
+   .btn-close:hover::after {
+      background-color: #a52b2b;
+      /* Change the color on hover */
+   }
+
+   .content_btn {
+      margin-top: 30px;
+      text-align: center;
+
+      button {
+         @include button;
+         font-size: 17px;
+      }
+   }
+}
+
+@mixin bg_service {
+   .anim_background {
+      position: relative;
+   }
+
+   .container {
+      position: relative;
+      background-color: $bg;
+      padding: 100px 0;
+
+      &::before,
+      &::after {
+         position: absolute;
+         width: 350px;
+         height: 350px;
+         content: "";
+         border-radius: 54% 46% 42% 58% / 60% 58% 42% 40%;
+         background-image: linear-gradient(45deg, $primary, $primary_light);
+         animation: vawe 5s linear infinite;
+      }
+
+      &::before {
+         top: -10%;
+         right: -10%;
+      }
+
+      &::after {
+         bottom: -10%;
+         left: -15%;
+      }
+
+      .dots {
+         position: absolute;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+
+         span {
+            position: absolute;
+            border-radius: 50%;
+            background-image: linear-gradient(45deg,
+                  $primary,
+                  $primary_light );
+            border-radius: 38% 62% 55% 45% / 32% 53% 47% 68%;
+            animation: vawe 7s linear infinite;
+
+            &:nth-child(1) {
+               top: 10%;
+               left: calc(100% - 360px);
+               width: 75px;
+               height: 75px;
+            }
+
+            &:nth-child(2) {
+               top: 15px;
+               left: 180px;
+               width: 50px;
+               height: 50px;
+               border-radius: 38% 62% 33% 67% / 60% 53% 47% 40%;
+               transform: rotate(90deg);
+            }
+
+            &:nth-child(3) {
+               right: 180px;
+               bottom: 20px;
+               width: 80px;
+               height: 80px;
+               border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
+            }
+
+            &:nth-child(4) {
+               bottom: 50px;
+               left: 240px;
+               width: 20px;
+               height: 20px;
+               border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
+            }
+
+            &:nth-child(5) {
+               right: 280px;
+               bottom: 80px;
+               width: 25px;
+               height: 25px;
+               border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
+            }
+
+            &:nth-child(6) {
+               top: 6%;
+               left: calc(100% - 400px);
+               width: 25px;
+               height: 25px;
+            }
+         }
+      }
+
+
+      @media screen and (max-width: 805px) {
+         height: 2000px;
+         margin-bottom: 100px;
+
+         .text {
+            p {
+               text-align: justify;
+            }
+         }
+
+         // La classe dans le composant Card.vue
+         .gradient-border {
+            width: 80vw;
+            min-height: 200px;
+         }
+      }
+
+      @media screen and (max-width: 605px) {
+         height: 2150px;
+      }
+
+      @media screen and (max-width: 500px) {
+         height: 2350px;
+
+         // La classe dans le composant Card.vue
+         .gradient-border {
+            width: 90vw;
+            min-height: 235px;
+         }
+      }
+
+      @media screen and (max-width: 385px) {
+         height: 2550px;
+      }
+   }
+
+   .content_service {
+      position: relative;
+      z-index: 1;
+      padding: 1em;
+      padding: 0 20px;
+
+      .display {
+         display: flex;
+         justify-content: space-evenly;
+         align-items: center;
+         gap: 70px;
+         margin: 0 30px;
+
+         .text {
+            width: 40%;
+            line-height: 1.7;
+
+            .btn {
+               margin-top: 50px;
+               text-align: center;
+            }
+         }
+
+         .card {
+            width: 55%;
+            display: flex;
+            justify-content: right;
+            gap: 30px;
+            flex-wrap: wrap;
+
+            .icon,
+            h3 {
+               text-align: center;
+            }
+         }
+      }
+
+      h2 {
+         color: #fefefe;
+         line-height: 1.5;
+         margin-bottom: 50px;
+         font-size: 2.2em;
+
+         strong {
+            color: $primary_light;
+            text-shadow: 0 3px 26px rgba(5, 204, 249, 0.615);
+         }
+      }
+
+      p {
+         color: #fefefe;
+         margin-top: 30px;
+      }
+
+   }
+
+   @media screen and (max-width: 1293px) {
+      .container {
+         .display {
+            flex-direction: column;
+
+            .text {
+               width: 90vw;
+               line-height: 1.7;
+            }
+
+            .card {
+               width: 100vw;
+               justify-content: center;
+
+            }
+         }
+      }
+   }
+
+   @keyframes vawe {
+      20% {
+         border-radius: 45% 55% 62% 38% / 53% 51% 49% 47%;
+      }
+
+      40% {
+         border-radius: 45% 55% 49% 51% / 36% 51% 49% 64%;
+      }
+
+      60% {
+         border-radius: 60% 40% 57% 43% / 47% 62% 38% 53%;
+      }
+
+      80% {
+         border-radius: 60% 40% 32% 68% / 38% 36% 64% 62%;
+      }
+   }
+}
+
+@mixin card_service {
+
+   .card:hover .gradient-border {
+      box-shadow: 0 3px 20px rgba(0, 208, 255, 0.076);
+   }
+
+   .card .gradient-border:hover {
+      box-shadow: 0 3px 20px 5px rgba(0, 208, 255, 0.409);
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:active {
+         box-shadow: 0 3px 20px rgba(0, 208, 255, 0.129);
+         transition: all 0.2s ease;
+      }
+   }
+
+
+
+   .gradient-border {
+      --border-width: 2px;
+      padding: 15px;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      width: 310px;
+      min-height: 290px;
+      color: white;
+      background: $bg;
+      border-radius: var(--border-width);
+      box-shadow: 0 3px 20px rgba(0, 208, 255, 0.409);
+      transition: all 0.3s ease;
+
+      &::after {
+         position: absolute;
+         content: "";
+         top: calc(-1 * var(--border-width));
+         left: calc(-1 * var(--border-width));
+         z-index: -1;
+         width: calc(100% + var(--border-width) * 2);
+         height: calc(100% + var(--border-width) * 2);
+         background: linear-gradient(60deg,
+               $primary,
+               $primary_light,
+               $primary_dark,
+               $dark_blue,
+               $blue_1,
+            );
+         background-size: 300% 300%;
+         background-position: 0 50%;
+         border-radius: calc(2 * var(--border-width));
+         animation: moveGradient 4s alternate infinite;
+      }
+
+      h3 {
+         margin: 10px 0;
+         font-size: 20px;
+         height: 45px;
+      }
+
+      h4 {
+         font-size: 14px;
+         font-weight: 100;
+         line-height: 1.4;
+      }
+
+   }
+
+   @keyframes moveGradient {
+      50% {
+         background-position: 100% 50%;
+      }
+   }
+
+   .icon img {
+      max-width: 60px;
+      max-height: 50px;
+   }
+}
+
+@mixin table {
+   margin: auto;
+   border: 1px solid rgba(0, 0, 0, 0);
+   overflow-y: auto;
+   padding: 1.25rem;
+   background-color: white;
+   box-shadow: 0 .46875rem 2.1875rem rgba(4, 9, 20, .03), 0 .9375rem 1.40625rem rgba(4, 9, 20, .03), 0 .25rem .53125rem rgba(4, 9, 20, .05), 0 .125rem .1875rem rgba(4, 9, 20, .03);
+
+   table {
+      border-collapse: collapse !important;
+      border: 2px solid #e9ecef;
+      width: 100%;
+
+      .title-row {
+         background: white;
+
+         th {
+            padding: 10px !important;
+            max-width: 100px;
+         }
+      }
+
+      th,
+      td {
+         border: 1px solid rgba(160, 160, 160, 0.711);
+         padding: 8px 10px;
+      }
+
+      th {
+         padding: 5px;
+      }
+
+      td {
+         text-align: center;
+         letter-spacing: 0.5px;
+         font-size: 13px;
+         padding: 10px;
+         transition: all 0.3s ease-in-out;
+         color: #3f3f3f;
+      }
+
+      tr {
+         background: rgba(0, 0, 0, 0.05);
+         transition: opacity 0.3s ease-in-out;
+
+         &:nth-of-type(odd) {
+            background: white;
+         }
+
+         &:hover:not(.title-row, .first-head-row) {
+            background-color: #84c7fb44;
+         }
+      }
+
+      .btn_action {
+         display: flex;
+         justify-content: space-between;
+
+         a {
+            padding: 5px;
+            cursor: pointer;
+         }
+
+         .edit {
+            color: rgba(0, 0, 255, 0.658);
+
+            &:hover {
+               color: rgb(56, 56, 245);
+               transform: scale(1.1);
+            }
+         }
+
+         .delete {
+            color: rgba(255, 0, 0, 0.616);
+
+            &:hover {
+               color: red;
+               transform: scale(1.1);
+            }
+         }
+      }
+   }
+}
+
+@mixin input {
+
+   .form__group {
+      position: relative;
+      padding: 15px 0 0;
+      margin-top: 10px;
+
+   }
+
+   .form__field {
+      font-family: inherit;
+      width: 100%;
+      border: 0;
+      border: 1px solid rgb(157, 157, 157);
+      border-radius: 5px;
+      outline: 0;
+      padding: 7px;
+      transition: border-color 0.2s;
+
+      &:hover {
+         border: 1px solid $secondary;
+      }
+
+      &::placeholder {
+         color: transparent;
+      }
+
+      &:placeholder-shown~.form__label {
+         cursor: text;
+         top: 24px;
+         padding-left: 7px;
+      }
+   }
+
+   .form__label {
+      position: absolute;
+      top: -8px;
+      display: block;
+      transition: 0.2s;
+      color: $secondary;
+   }
+
+   .form__field:focus {
+      padding-bottom: 6px;
+      padding-left: 7px;
+      border-width: 2px;
+      border-image: linear-gradient(to right, $primary, $secondary);
+      border-image-slice: 1;
+      box-shadow: 2px 2px 8px rgba(124, 145, 230, 0.312);
+
+      ~.form__label {
+         position: absolute;
+         top: -8px;
+         display: block;
+         transition: 0.2s;
+         color: $primary_dark;
+      }
+   }
+
+   /* reset input */
+   .form__field {
+
+      &:required,
+      &:invalid {
+         box-shadow: none;
+      }
+   }
+}
+
+@mixin checkbox {
+
+   ul.ks-cboxtags {
+      list-style: none;
+
+   }
+
+   ul.ks-cboxtags li {
+      display: inline;
+   }
+
+   ul.ks-cboxtags li label {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, .9);
+      border: 2px solid rgba(139, 139, 139, .3);
+      color: #adadad;
+      border-radius: 25px;
+      margin: 5px 0;
+      white-space: nowrap;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: all .2s;
+
+      &:hover {
+         transition: all .2s;
+         border: 2px solid $blue_2;
+      }
+   }
+
+   ul.ks-cboxtags li label {
+      padding: 8px 12px;
+      cursor: pointer;
+      width: 100%;
+   }
+
+   ul.ks-cboxtags li label::before {
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 12px;
+      padding: 2px 6px 2px 2px;
+      content: "\f067";
+      transition: transform .3s ease-in-out;
+   }
+
+   ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
+      content: "\f00c";
+      transform: rotate(-360deg);
+      transition: transform .3s ease-in-out;
+   }
+
+   ul.ks-cboxtags li input[type="checkbox"]:checked+label {
+      border: 1px solid $primary;
+      background-color: $blue_2;
+      color: #fff;
+      transition: all .2s;
+   }
+
+   ul.ks-cboxtags li input[type="checkbox"] {
+      display: absolute;
+   }
+
+   ul.ks-cboxtags li input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+   }
+}
+
+@mixin form {
+
+   /* input design */
+   .form-row .input-data {
+      width: 100%;
+      height: 40px;
+      margin: 25px 0;
+      position: relative;
+
+   }
+
+   .input-data input {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+      font-size: 17px;
+      background-color: transparent;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+   }
+
+   .input-data input:focus~label,
+   .input-data input:valid~label {
+      transform: translateY(-20px);
+      font-size: 14px;
+      color: #3498db;
+   }
+
+   .input-data label {
+      position: absolute;
+      pointer-events: none;
+      bottom: 15px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+   }
+
+   .input-data .underline {
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+   }
+
+   .input-data .underline:before {
+      position: absolute;
+      content: "";
+      height: 2px;
+      width: 100%;
+      background: #3498db;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+   }
+
+
+   .submit-btn .input-data input {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+   }
+
+   .content_btn {
+      margin-top: 50px;
+      text-align: center;
+
+      button {
+         @include button;
+         font-size: 17px;
+      }
+   }
+}

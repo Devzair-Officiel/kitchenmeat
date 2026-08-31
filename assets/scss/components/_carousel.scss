@@ -1,0 +1,26 @@
+.carousel {
+	overflow: hidden;
+}
+
+.carousel-track {
+	display: flex;
+	animation: scroll 15s linear infinite; 
+}
+
+.carousel-item {
+	flex: 0 0 auto;
+	padding: 50px;
+}
+
+.carousel-item img {
+	height: auto;
+}
+
+@keyframes scroll {
+	from {
+		 transform: translateX(0);
+	}
+	to {
+		 transform: translateX(-50%); 
+	}
+}

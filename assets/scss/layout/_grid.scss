@@ -1,0 +1,42 @@
+@use '../utils/mixin' as *;
+
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    @media screen and (max-width: 450px) {
+        padding: 0 0.5rem;
+    }
+}
+
+.row {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 2rem;
+   padding: 2em 5vw;
+}
+
+.col {
+    flex: 1 1 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+    @include respond-to(mobile) {
+        flex: 1 1 95%;
+        /* Chaque colonne prend 100% de la largeur sur mobile */
+        padding: 0;
+    }
+
+    @include respond-to(tablet) {
+        flex: 1 1 45%;
+        /* Chaque colonne prend 50% de la largeur sur tablette */
+    }
+
+    @include respond-to(desktop) {
+        flex: 1 1 0;        // se répartit automatiquement
+      max-width: none;
+    }
+}

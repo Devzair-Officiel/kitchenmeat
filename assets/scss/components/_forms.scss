@@ -1,0 +1,128 @@
+@use '../utils/variables' as *;
+
+.form-container {
+   max-width: 1400px;
+   margin: 0 auto;
+   background-color: rgba($primary, 0.7);
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+   h1 {
+      text-align: center;
+      color: #333;
+   }
+
+   .form-section {
+      margin-bottom: 20px;
+      width: 100%;
+
+      h2 {
+         font-size: 1.2rem;
+         margin-bottom: 10px;
+         color: $secondary;
+         border-bottom: 1px solid #ddd;
+         padding-bottom: 5px;
+      }
+   }
+
+   .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+      width: 90%;
+      margin-right: 40px;
+
+      label {
+         font-size: 0.9rem;
+         margin-bottom: 5px;
+         color: #444;
+      }
+
+      input,
+      textarea,
+      select {
+         padding: 10px;
+         border: 1px solid #ddd;
+         border-radius: 4px;
+         font-size: 1rem;
+      }
+
+      textarea {
+         min-height: 80px;
+         resize: vertical;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+         outline: none;
+         border-color: #007bff;
+         box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+      }
+   }
+
+   .submit-button {
+      display: block;
+      width: 200px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+         background-color: #0056b3;
+      }
+   }
+}
+
+.error-message {
+   position: relative;
+   z-index: 11111;
+   color: red;
+   margin-top: 5px;
+   font-size: 0.9em;
+}
+
+.password_forgot {
+   text-align: end;
+   margin: 15px 0;
+
+   a {
+      width: 100%;
+
+      &:hover {
+         color: $secondary;
+         text-decoration: underline;
+      }
+   }
+
+}
+
+.toggle-password {
+   position: absolute;
+   right: 15px;
+   top: 50%;
+   transform: translateY(-50%);
+   cursor: pointer;
+   font-size: 1.2rem;
+}
+
+.eye-icon {
+   font-size: 16px;
+   color: $secondary;
+
+   &.fa-eye-slash {
+      content: "\f070"; // Code pour l'icône d'œil fermé
+   }
+
+   &.fa-eye {
+      content: "\f06e"; // Code pour l'icône d'œil ouvert
+   }
+}

@@ -1,0 +1,32 @@
+// Couleurs globales
+$primary: #cabaaa;
+$secondary: #4d81b5;
+$third: #1e3d6e;
+
+$blue_1: #0055ff;
+$color-neon: #0cd1fd;
+
+$gradient: linear-gradient(45deg, #96C2DB, #E5EDF1);
+$background-color: rgb(237, 233, 233);
+
+$text-color: #3f4957;
+$text-color-light: #edf0f2;
+
+$shadow-primary: $secondary 0px 15px 40px 0px;
+$shadow-secondary: 0 0 15px rgba($secondary, 0.3);
+
+// Typographie
+$font-base: 'Open Sans', sans-serif;
+$font-heading: 'Roboto', sans-serif;
+
+$font-size-base: 16px;
+$font-size-h1: 2.5rem;
+$font-size-h2: 1.8rem;
+$font-size-h3: 1.3rem;
+$line-height-base: 1.4;
+
+$table-border-color: #ccc;
+$table-border-color-light: #ddd;
+$table-padding: 12px;
+$table-header-bg: #f4f4f4;
+$table-row-alt-bg: #f9f9f9;

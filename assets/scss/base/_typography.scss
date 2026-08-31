@@ -1,0 +1,48 @@
+@use '../utils/variables' as *;
+
+body {
+   font-family: $font-base;
+   font-size: $font-size-base;
+   line-height: $line-height-base;
+   color: $text-color;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+   font-family: $font-heading;
+   font-weight: 400;
+   margin-bottom: 1rem;
+   color: $third;
+}
+
+h1 {
+   font-size: $font-size-h1;
+   margin-bottom: 50px;
+}
+
+h2 {
+   font-size: $font-size-h2;
+}
+
+h3 {
+   font-size: $font-size-h3;
+}
+
+p {
+   margin-bottom: 1.5rem;
+   font-weight: 400;
+}
+
+a {
+   text-decoration: none; // Supprime le soulignement
+   color: inherit; // Hérite de la couleur du texte parent
+   background: none;
+}
+
+section {
+   padding-bottom: 50px;
+}

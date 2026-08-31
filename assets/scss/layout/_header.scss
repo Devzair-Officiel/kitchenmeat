@@ -1,0 +1,74 @@
+@use '../utils/variables' as *;
+
+.row_header {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.header-course {
+   padding: 50px;
+   position: relative;
+   height: 450px;
+
+   .header-course-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 550px;
+      background-attachment: fixed;
+      background-size: cover;
+   }
+
+   .blur-box {
+      position: relative;
+      margin: 50px;
+
+      .blur-contain {
+         background-color: rgba(0, 0, 0, 0.43);
+         backdrop-filter: blur(10px);
+         padding: 20px;
+      }
+   }
+}
+
+// MODULE D'UN COURS //
+.header-course-module {
+   margin-top: 90px;
+
+   .breadcrumb {
+      color: rgb($text-color-light, 0.5);
+   }
+
+   h1 {
+      margin: 0;
+   }
+}
+
+
+.header-formation {
+   background: $gradient;
+   padding: 70px 30px;
+   box-shadow: -50px -50px 0 -40px $secondary, 50px 50px 0 -40px $primary;
+
+   h1 {
+      text-align: center;
+   }
+}
+
+.header_text {
+   h1 {
+      font-size: 2.6rem;
+      margin-top: 10px;
+      text-align: center;
+   }
+}
+
+@media (max-width: 900px) {
+
+   .header_text {
+      gap: 10px;
+      flex-direction: column;
+   }
+}
