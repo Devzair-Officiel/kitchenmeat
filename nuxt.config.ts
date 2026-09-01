@@ -1,16 +1,16 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // compatibilityDate gèle les comportements Nitro/h3 à une date donnée.
-  // Utile pour éviter des changements de comportement lors des mises à jour
-  // de dépendances Nitro. Valeur : date de la dernière révision du projet.
   compatibilityDate: '2025-01-01',
 
   devtools: { enabled: true },
 
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
+    // pageTransition supprimé : appliquait opacity:0+blur au premier rendu (site 1 page = pas de navigation inter-pages)
     head: {
       htmlAttrs: { lang: 'fr' },
+      link: [
+        // Preload de la police du H1 hero (LCP) : démarre le téléchargement avant même le parsing du CSS
+        { rel: 'preload', as: 'font', type: 'font/woff', href: '/fonts/arkipelago.woff', crossorigin: 'anonymous' },
+      ],
     },
   },
 
@@ -22,18 +22,20 @@ export default defineNuxtConfig({
     '@nuxt/icon',
   ],
 
-  // Génération statique : aucune fonctionnalité serveur requise
   nitro: {
     preset: 'static',
   },
 
   fonts: {
+    // font-display:optional = le navigateur ne bloque pas le rendu pour attendre la police.
+    // Premier chargement : polices système (fallback). Visites suivantes : polices custom depuis le cache.
+    // Évite que les 6 fichiers woff2 retardent FCP/LCP sur connexion lente.
     families: [
-      { name: 'Open Sans', weights: [400], styles: ['normal'] },
-      { name: 'Roboto', weights: [400], styles: ['normal'] },
-      { name: 'Lato', weights: [400, 700], styles: ['normal'] },
-      { name: 'Arvo', weights: [400], styles: ['normal'] },
-      { name: 'Yellowtail', weights: [400], styles: ['normal'] },
+      { name: 'Open Sans', weights: [400], styles: ['normal'], display: 'optional' },
+      { name: 'Roboto', weights: [400], styles: ['normal'], display: 'optional' },
+      { name: 'Lato', weights: [400, 700], styles: ['normal'], display: 'optional' },
+      { name: 'Arvo', weights: [400], styles: ['normal'], display: 'optional' },
+      { name: 'Yellowtail', weights: [400], styles: ['normal'], display: 'optional' },
     ],
   },
 })

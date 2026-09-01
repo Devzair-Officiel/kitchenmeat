@@ -1,10 +1,9 @@
 <template>
     <header class="hero-header">
         <video
+ref="videoEl"
 class="background-video" autoplay muted loop playsinline
-               poster="/images/intro-poster.webp" preload="none">
-            <source src="/images/intro.mp4" type="video/mp4">
-        </video>
+               poster="/images/intro-poster.webp" />
 
         <nav class="navbar">
             <input id="burger" v-model="menuOpen" type="checkbox" hidden>
@@ -60,6 +59,7 @@ src="/images/logo.webp" alt="Logo Kitchen Meat"
 
 <script setup>
 const menuOpen = ref(false)
+const videoEl = ref(null)
 
 const handleResize = () => {
     if (window.innerWidth > 850) {
@@ -67,7 +67,24 @@ const handleResize = () => {
     }
 }
 
-onMounted(() => window.addEventListener('resize', handleResize))
+const loadVideo = () => {
+    if (!videoEl.value) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const source = document.createElement('source')
+    source.src = '/images/intro.mp4'
+    source.type = 'video/mp4'
+    videoEl.value.appendChild(source)
+    videoEl.value.load()
+}
+
+onMounted(() => {
+    window.addEventListener('resize', handleResize)
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadVideo, { timeout: 2000 })
+    } else {
+        setTimeout(loadVideo, 200)
+    }
+})
 onUnmounted(() => window.removeEventListener('resize', handleResize))
 
 useHead({
