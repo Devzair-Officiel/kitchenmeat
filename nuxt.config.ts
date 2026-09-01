@@ -3,6 +3,10 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  features: {
+    inlineStyles: true,
+  },
+
   app: {
     // pageTransition supprimé : appliquait opacity:0+blur au premier rendu (site 1 page = pas de navigation inter-pages)
     head: {

@@ -60,6 +60,7 @@ src="/images/logo.webp" alt="Logo Kitchen Meat"
 <script setup>
 const menuOpen = ref(false)
 const videoEl = ref(null)
+let videoTimer = null
 
 const handleResize = () => {
     if (window.innerWidth > 850) {
@@ -75,17 +76,25 @@ const loadVideo = () => {
     source.type = 'video/mp4'
     videoEl.value.appendChild(source)
     videoEl.value.load()
+    const p = videoEl.value.play()
+    if (p !== undefined) p.catch(() => {})
 }
 
 onMounted(() => {
     window.addEventListener('resize', handleResize)
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadVideo, { timeout: 2000 })
+    if (document.readyState === 'complete') {
+        videoTimer = setTimeout(loadVideo, 2000)
     } else {
-        setTimeout(loadVideo, 200)
+        window.addEventListener('load', () => {
+            videoTimer = setTimeout(loadVideo, 2000)
+        }, { once: true })
     }
 })
-onUnmounted(() => window.removeEventListener('resize', handleResize))
+
+onUnmounted(() => {
+    window.removeEventListener('resize', handleResize)
+    if (videoTimer !== null) clearTimeout(videoTimer)
+})
 
 useHead({
   title: 'Restaurant grillades à Lyon – Kitchen Meat',
